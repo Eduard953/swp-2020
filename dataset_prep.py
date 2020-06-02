@@ -19,7 +19,7 @@ Software Projekt/
         # 3, 4 etc. for each batch of annotated imgs from supervisly
 
 ├── ground_truths/
-└── dataset_crop.py
+└── dataset_prep.py
 
 """
 
