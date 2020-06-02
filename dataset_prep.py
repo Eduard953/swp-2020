@@ -28,7 +28,7 @@ GT_1_img_1_67_0.png
 GT_1 -> ground truth 1 (can be 0)
 img_1 -> img from folder 1
 _67 -> 67th image or 134th frame from that folder
-_0 -> iteration of the same image
+_0 -> iteration from the same image
 """
 
 
