@@ -5,12 +5,12 @@
 
 Software Projekt/
 ├── BeesBook/
-│   ├── 1/
+│   ├── 0/
 │   │     ├── ann/
 │   │     │    └── jsonfiles...
 │   │     └── img/
 │   │          └── images...
-│   ├── 2/
+│   ├── 1/
 │         ├── ann/
 │         │    └── jsonfiles...
 │         └── img/
@@ -21,6 +21,14 @@ Software Projekt/
 ├── ground_truths/
 └── dataset_prep.py
 
+
+
+also example img:
+GT_1_img_1_67_0.png
+GT_1 -> ground truth 1 (can be 0)
+img_1 -> img from folder 1
+_67 -> 67th image or 134th frame from that folder
+_0 -> iteration of the same image
 """
 
 
@@ -54,8 +62,8 @@ for x in range(len(next(os.walk('BeesBook/'))[1])):
     
         # folder dir, edit for your pc?
 
-        dir_json = "BeesBook/" + str(x+1) + "/ann/"
-        dir_img = "BeesBook/" + str(x+1) + "/img/"
+        dir_json = "BeesBook/" + str(x) + "/ann/"
+        dir_img = "BeesBook/" + str(x) + "/img/"
 
 
         # list of json/img
