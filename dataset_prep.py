@@ -110,12 +110,12 @@ for x in range(len(next(os.walk('BeesBook/'))[1])):
                     #save img
                 
                     current_img = current_img.crop((x1,y1,x2,y2))
-                    current_img.save( dir_target + "GT_1_img_" + str(x+1) + '_' + str(b) + '_' + str(a) + ".png")
+                    current_img.save( dir_target + "GT_1_img_" + str(x) + '_' + str(b) + '_' + str(a) + ".png")
                 
                 
                     #write into csv file with ,1
                 
-                    writer.writerow(["GT_1_img_" + str(x+1) + '_' + str(b) + '_' + str(a) + ".png", 1])
+                    writer.writerow(["GT_1_img_" + str(x) + '_' + str(b) + '_' + str(a) + ".png", 1])
          
     
             # if no points in image, random crops, save it for GT0
@@ -142,9 +142,9 @@ for x in range(len(next(os.walk('BeesBook/'))[1])):
                     #save img
         
                     current_img = current_img.crop((x1,y1,x2,y2))
-                    current_img.save( dir_target + "GT_0_img_" + str(x+1) + '_' + str(b) + '_' + str(a) + ".png")
+                    current_img.save( dir_target + "GT_0_img_" + str(x) + '_' + str(b) + '_' + str(t) + ".png")
                     
                     #write into csv file with ,0
                     
-                    writer.writerow(["GT_0_img_" + str(x+1) + '_' + str(b) + '_' + str(a) + ".png", 0])
+                    writer.writerow(["GT_0_img_" + str(x) + '_' + str(b) + '_' + str(t) + ".png", 0])
             
