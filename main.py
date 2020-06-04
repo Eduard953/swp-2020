@@ -32,7 +32,7 @@ import train_network, test_network
 
 
 def load_data():
-    b_size = 50
+    b_size = 100
 
     transform_train = transforms.Compose([
         transforms.RandomOrder([
