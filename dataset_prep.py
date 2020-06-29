@@ -149,6 +149,8 @@ for x in range(len(next(os.walk('BeesBook/'))[1])):
         
                 current_img = current_img.crop((x1,y1,x2,y2))
                 current_img.save( dir_target_training_0 + "GT_0_img_" + str(x) + '_' + str(b) + '_' + str(t) + ".png")
+                
+    print("folder done!")
             
 #spit test and training
 
@@ -164,16 +166,18 @@ for y in range(c_o_dot_len):
     rnd = random.randint(0,c_len -1)
     os.rename(dir_target_training_0 + str(c[rnd]), dir_target_test_0 + str(c[rnd]))
     
+print("first split done!")
+
+l = next(os.walk(dir_target_training_1))[2]
+l_o_dot_len = int(0.2 * len(l)) 
+
+for o in range(l_o_dot_len):
     
+    l = next(os.walk(dir_target_training_1))[2]
+    l_len = len(l)
+    l_dot_len = int(0.2 * len(l))
 
-c = next(os.walk(dir_target_training_1))[2]
-c_o_dot_len = int(0.2 * len(c)) 
-
-for y in range(c_o_dot_len):
+    rnd = random.randint(0,l_len -1)
+    os.rename(dir_target_training_1 + str(l[rnd]), dir_target_test_1 + str(l[rnd]))
     
-    c = next(os.walk(dir_target_training_1))[2]
-    c_len = len(c)
-    c_dot_len = int(0.2 * len(c))
-
-    rnd = random.randint(0,c_len -1)
-    os.rename(dir_target_training_1 + str(c[rnd]), dir_target_test_1 + str(c[rnd]))
+print("second split done!")
