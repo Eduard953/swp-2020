@@ -150,7 +150,7 @@ for x in range(len(next(os.walk('BeesBook/'))[1])):
                 current_img = current_img.crop((x1,y1,x2,y2))
                 current_img.save( dir_target_training_0 + "GT_0_img_" + str(x) + '_' + str(b) + '_' + str(t) + ".png")
                 
-    print("folder done!")
+    print("folder " + str(x) + "/" + str(len(next(os.walk('BeesBook/'))[1]))+ " done!")
             
 #spit test and training
 
