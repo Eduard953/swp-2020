@@ -4,14 +4,6 @@ from torch.utils import data
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-def imshow(img):
-    npimg = img.numpy()
-    plt.imshow(np.transpose(npimg(1, 2, 0)))
-    plt.axis('off')
-    plt.show()
-
-
 def store_json_test(epochs, test_accuracy, f1_score, validation_loss):
     d = {
         "Validation loss" : validation_loss,
@@ -53,7 +45,7 @@ def test_net(testloader, net, criterion, number_of_epochs, epoch, true_positives
         for index, sample in enumerate(testloader, 0):
             inputs, labels = sample
             outputs = net(inputs)
-            predicted = outputs > 0.60
+            predicted = outputs > 0.90
             
             labels = labels.float().reshape(torch.Size(outputs.shape))
 
