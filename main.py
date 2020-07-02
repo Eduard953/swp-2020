@@ -5,17 +5,20 @@
 ├── main.py
 ├── train_network.py
 ├── test_network.py
+├── Plot/
+├── Training/
+├── Heatmap/
 ├── ground_truths/
 │   ├── training_images/
-│   │     ├── 0 notpollen/
-│   │     │    └── GT_0-images (80%)
-│   │     └── 1 pollen/
-│   │          └── GT_1-images(80%)
+│   │     ├── 0/
+│   │     │    └── negative examples (80%)
+│   │     └── 1/
+│   │          └── positive examples (80%)
 │   ├── test_images/
-│         ├── 0 notpollen/
-│         │    └── GT_0-images (20%)
-│         └── 1 pollen/
-│              └── GT_1-images (20%)
+│         ├── 0/
+│         │    └── negative examples (20%)
+│         └── 1/
+│              └── positive examples (20%)
 """
 
 import json, sys
@@ -99,7 +102,7 @@ def main(args):
     number_of_epochs = 10
     
     if len(args) < 2:
-        print('usage: main.py (train|test)')
+        print('usage: main.py (train|test|heatmap)')
     
     elif args[1] == 'train':
         train_network.train(trainloader, net, criterion, optimizer, number_of_epochs, date_time)
@@ -109,6 +112,13 @@ def main(args):
         train_loss = j["Train loss"]
         epochs = j["Epoch"]
         test_network.test(testloader, net, criterion, number_of_epochs, date_time, train_loss, epochs)
+    
+    elif args[1] == 'heatmap':
+        if len(args) < 3:
+            print('usage: main.py heatmap <json-file(s)>')
+        else:
+            given_arguments = args[2:]
+            test_heatmap.heatmap(given_arguments, net, number_of_epochs)
         
     else:
         print('unknown command: {}'.format(args[1]))
