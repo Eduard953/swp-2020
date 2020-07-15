@@ -160,7 +160,7 @@ def loop_epochs(given_arguments, net, date_time, number_of_epochs):
 
     save_epoch = 0
 
-    for epoch in range(number_of_epochs-1,number_of_epochs):
+    for epoch in range(number_of_epochs):
         save_epoch = epoch
         print('*** Test on full images using state of epoch {} ***'.format(epoch))
         num_pred = 0.0
