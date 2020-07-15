@@ -207,6 +207,6 @@ def loop_epochs(given_arguments, net, date_time, number_of_epochs):
     return precision, recall, f1_score
 
 
-def heatmap(given_arguments, net, date_time, number_of_epochs):
+def heatmap(given_arguments, net, date_time, number_of_epochs, train_loss, epochs):
     precision, recall, f1_score = loop_epochs(given_arguments, net, date_time, number_of_epochs)
     plot_heatgraph(number_of_epochs, epochs, train_loss, precision, recall, f1_score, date_time)
