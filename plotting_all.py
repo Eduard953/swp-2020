@@ -5,10 +5,32 @@ from torch.utils import data
 import matplotlib.pyplot as plt
 import numpy as np
 
-#all folder from 0-n
+"""
+# folder structure 
+#from 0 to n-1
+
+Software Projekt/
+│
+├── ground_thruths_0/
+│   
+├── ground_truths_1/
+│
+├─── Plot/
+│         │
+│         ├── 0/
+│         │
+│         └── 1/
+│
+└── Training/
+          │
+          ├── 0/
+          │
+          └── 1/
+"""
 
 
-
+# plots the average of all test results
+# input being the amount of folders to be done for
 
 def avrg_plot(x):
     train_loss_avrg = []
@@ -44,6 +66,8 @@ def avrg_plot(x):
     axes.set_ylim([0,1])
 
 
+# reads every result off the JSON files
+
 def plot_all(x):
     image_count = (sum([len(files) for r, d, files in os.walk("./ground_truths_"+ str(x) +"/training_images/0 notpollen")])) + (sum([len(files) for r, d, files in os.walk("./ground_truths_"+ str(x) +"/test_images/0 notpollen")]))
     data1 = json.load(open("./Plot/" + str(x) + "/test_data.json"))
@@ -56,6 +80,9 @@ def plot_all(x):
     
     return len(epochs), epochs,train_loss,accuracy,f1,val_loss, image_count
     
+
+# plots every result off the JSON files
+
 def plot_train_test(number_of_epochs, epochs, train_loss, test_accuracy, f1_score, validation_loss, x):
     f, ax = plt.subplots(1, figsize = (10,5))
     plt.title('with ' + str(x) + ' negative examples')
