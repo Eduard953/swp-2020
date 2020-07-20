@@ -35,6 +35,7 @@ import train_network, test_network
 
 
 def load_data():
+    """Load and prepare datasets"""
     b_size = 100
 
     transform_train = transforms.Compose([
@@ -44,7 +45,7 @@ def load_data():
         transforms.RandomVerticalFlip(),
         transforms.ColorJitter(brightness=0.5, contrast=0.5)
         ]),
-        transforms.CenterCrop(54),
+        transforms.CenterCrop(48),
         transforms.Resize(32),
         transforms.Grayscale(num_output_channels=1),
         transforms.ToTensor()
@@ -94,6 +95,7 @@ class Net(nn.Module):
 
 
 def main(args):
+    """Choose execution"""
     trainloader, testloader = load_data()
     net = Net()
     criterion = nn.BCELoss()
